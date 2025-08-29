@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Red Rocks Housesitting</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <a href="index.html"><img src="rrlogo.png" alt="Red Rocks Housesitting"></a>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="request.html">Request Services</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>Make sure your home and pet get the best attention</h1>
+  <button onclick="window.location.href='request.html'">Request Services Today</button>
+</section>
+
+<section class="services-header">
+  <h2 class="services-heading">Our Services</h2>
+</section>
+
+<section class="services">
+  <div class="card">
+    <div class="card-inner">
+      <div class="card-front">
+        <img src="service1.png" alt="Pet Sitting">
+      </div>
+      <div class="card-back">
+        <h3>Pet Sitting</h3>
+        <p>Caring for your pets while you are away, with love and attention.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-inner">
+      <div class="card-front">
+        <img src="service2.png" alt="House Sitting">
+      </div>
+      <div class="card-back">
+        <h3>House Sitting</h3>
+        <p>Keeping your home safe, secure, and maintained while you travel.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-inner">
+      <div class="card-front">
+        <img src="service4.png" alt="Overnight Stay">
+      </div>
+      <div class="card-back">
+        <h3>Overnight Stay</h3>
+        <p>Stay overnight to ensure your pets and home are cared for 24/7.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-inner">
+      <div class="card-front">
+        <img src="service3.png" alt="Plant Care">
+      </div>
+      <div class="card-back">
+        <h3>Plant Care</h3>
+        <p>Watering and tending to your plants to keep them happy and healthy.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-inner">
+      <div class="card-front">
+        <img src="service5.png" alt="Peace of Mind">
+      </div>
+      <div class="card-back">
+        <h3>Peace of Mind</h3>
+        <p>Professional, trustworthy service so you can relax while away.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials">
+  <h2>What Our Clients Say</h2>
+  <div class="testimonial-carousel">
+    <div class="testimonial-card">"Slo took such good care of our animals and house. Vacation was a breeze and everything was so clean and perfect when we got back." <br>— Gina</div>
+    <div class="testimonial-card">"The RR team was so kind, and the animals really loved them." <br>— Linda</div>
+    <div class="testimonial-card">"They are so professional and easy to work with, it was so wonderful to work with Del!" <br>— Colin</div>
+    <div class="testimonial-card">"Our cats are quite shy and they were so gentle with them and just took such good care of them." <br>— Sof</div>
+    <div class="testimonial-card">"Really impressed by the care. There were even cookies baked and left for us after! It was wonderful, would highly recommend!" <br>— Sandy</div>
+    <!-- Placeholder extras -->
+    <div class="testimonial-card">"Absolutely amazing service! Our dog didn’t want them to leave." <br>— Jamie</div>
+    <div class="testimonial-card">"Professional, punctual, and so caring. Highly recommend!" <br>— Alex</div>
+    <div class="testimonial-card">"Felt totally comfortable leaving our home in their hands." <br>— Morgan</div>
+  </div>
+</section>
+
+
+<footer>
+  redrockshousesitting@gmail.com |
+</footer>
+
+<script src="script.js"></script>
+
+<script>
+  // Auto refresh every 2 seconds while editing
+  if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
+    setInterval(() => {
+      fetch(location.href, {cache: "no-store"})
+        .then(() => location.reload());
+    }, 2000);
+  }
+</script>
+
+</body>
+</html>

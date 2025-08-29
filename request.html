@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Request Services - Red Rocks Housesitting</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <a href="index.html"><img src="rrlogo.png" alt="Red Rocks Housesitting"></a>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="request.html">Request Services</a>
+  </nav>
+</header>
+
+<form action="https://formspree.io/f/mkgzeqkl" method="POST">
+  <input type="text" name="name" placeholder="Your Name" required>
+  <input type="email" name="_replyto" placeholder="Your Email" required>
+  <input type="tel" name="phone" placeholder="Your Phone Number" required pattern="[0-9]{10}" title="Enter a 10-digit phone number">
+
+  <label for="start-date">Start Date of Housesitting:</label>
+  <input type="date" id="start-date" name="start_date" required>
+
+  <label for="end-date">End Date of Housesitting:</label>
+  <input type="date" id="end-date" name="end_date" required>
+
+  <textarea name="details" placeholder="Additional Details (pets, instructions, etc.)" rows="6"></textarea>
+  <button type="submit">Send Request</button>
+</form>
+
+<footer>
+  redrockshousesitting@gmail.com | 
+</footer>
+
+<script src="script.js"></script>
+<script>
+  // Auto refresh every 2 seconds while editing
+  if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
+    setInterval(() => {
+      fetch(location.href, {cache: "no-store"})
+        .then(() => location.reload());
+    }, 2000);
+  }
+</script>
+
+</body>
+</html>

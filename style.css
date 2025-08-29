@@ -1,0 +1,360 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #fdfdfd;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  padding: 20px 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: padding 0.3s ease;
+  will-change: transform;
+}
+
+header img {
+  height: 120px; 
+  transition: height 0.3s ease;
+}
+
+header.shrink {
+  padding: 8px 50px; /* compact header */
+}
+
+header.shrink img {
+  height: 45px; /* smaller logo on scroll */
+}
+
+nav {
+  display: flex;
+  gap: 60px; /* space between menu items */
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+  font-size: 1.5rem; /* big text for big header */
+  transition: font-size 0.3s ease, color 0.3s ease;
+}
+
+nav a:hover {
+  color: #e74c3c;
+}
+
+/* Shrink menu text when header shrinks */
+header.shrink nav a {
+  font-size: 1rem;
+}
+
+
+.hero {
+  height: 80vh;
+  background: url('dog.png') center/cover no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+.hero h1 {
+  font-size: 2rem;
+  max-width: 600px;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+}
+
+.hero button {
+  margin-top: 20px;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 15px 25px;
+  font-size: 1rem;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.hero button:hover {
+  background-color: #c0392b;
+}
+
+/* SERVICES SECTION*/
+.services {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 40px;
+}
+
+.services-header {
+  text-align: center;       
+  padding: 40px 20px 0px; 
+}
+
+.services-heading {
+  font-size: 2rem;        
+  font-weight: 600;
+  color: #333;
+  margin: 0;                
+}
+
+.card {
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  padding-top: 66%; /* Aspect ratio */
+  transform-style: preserve-3d;
+  transition: transform 0.8s;
+  border-radius: 10px;
+}
+
+
+/* Hover flip (desktop only) */
+@media (hover: hover) and (pointer: fine) {
+  .card:hover .card-inner {
+    transform: rotateY(180deg);
+  }
+}
+
+/* Tap flip (mobile) */
+.card.flip .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  border-radius: 10px;
+  backface-visibility: hidden;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.card-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-back {
+  background-color: white;
+  padding: 20px;
+  transform: rotateY(180deg);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card-back h3 {
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+
+.card-back p {
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.4;
+}
+
+/* TESTIMONIALS SECTION*/
+.testimonials {
+  padding: 50px;
+  background-color: #fafafa;
+  text-align: center;
+}
+
+.testimonials h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.testimonial-carousel {
+  display: flex;
+  overflow-x: auto;
+  gap: 50px;
+  scroll-behavior: smooth;
+  padding: 0px 40px 20px; 
+}
+
+.testimonial-card {
+  flex: 0 0 300px;
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  text-align: left;
+  font-style: italic;
+  font-size: 1rem;
+}
+
+.testimonial-carousel::-webkit-scrollbar {
+  display: none; /* hide scrollbar */
+}
+
+.about {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 40px;
+}
+
+.about img {
+  max-width: 300px;
+  border-radius: 10px;
+}
+
+form {
+  padding: 40px;
+  max-width: 600px;
+  margin: auto;
+}
+
+form input, form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+form button {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+form button:hover {
+  background-color: #c0392b;
+}
+
+/* About page header */
+.about-header {
+  text-align: center;
+  padding: 60px 20px 20px;
+}
+
+.about-header h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+/* Team flip cards */
+.about-team {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+  padding: 40px;
+  justify-items: center; /* center cards */
+}
+
+.team-card {
+  perspective: 1000px;
+  width: 400px;       
+  height: 500px;     
+  cursor: pointer;
+}
+
+.team-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.8s;
+  border-radius: 10px;
+}
+
+/* Flip on hover (desktop) */
+@media (hover: hover) and (pointer: fine) {
+  .team-card:hover .team-card-inner {
+    transform: rotateY(180deg);
+  }
+}
+
+/* Flip when .flip class is toggled (mobile tap) */
+.team-card.flip .team-card-inner {
+  transform: rotateY(180deg);
+}
+
+.team-card-front,
+.team-card-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.team-card-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.team-card-back {
+  background-color: white;
+  padding: 15px;
+  transform: rotateY(180deg);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.team-card-back h3 {
+  margin-bottom: 8px;
+  font-size: 1.1rem;
+}
+
+.team-card-back p {
+  font-size: 0.9rem;
+  color: #333;
+  line-height: 1.4;
+}
+
+
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 70px; 
+  font-size: 2rem;
+  margin-top: auto;
+}
+

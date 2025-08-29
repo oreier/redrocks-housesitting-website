@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About - Red Rocks Housesitting</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <a href="index.html"><img src="rrlogo.png" alt="Red Rocks Housesitting"></a>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="request.html">Request Services</a>
+  </nav>
+</header>
+
+<!-- Page header -->
+<section class="about-header">
+  <h2>About Your House Sitters</h2>
+</section>
+
+<!-- Team section with flip cards -->
+<section class="about-team">
+  <!-- TT Lole -->
+  <div class="team-card">
+    <div class="team-card-inner">
+      <div class="team-card-front">
+        <img src="me.jpeg" alt="Delaney">
+      </div>
+      <div class="team-card-back">
+        <h3>Delaney</h3>
+        <p>Hello! I'm Delaney, one of the friendly faces behind Red Rocks Housesitting. I provide caring, reliable house and pet sitting services so you can travel with confidence. Whether you need overnight stays, plant care, or simply peace of mind, I’m here to make sure your home and pets are treated like family. I grew up on a farm, and have extensive professional animal care experience! I love all animals, and have had dogs and cats in my life, along with parrots, horses, chickens, sheep, and other farm animals.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slo Mo Dawg -->
+  <div class="team-card">
+    <div class="team-card-inner">
+      <div class="team-card-front">
+        <img src="slo.jpg" alt="Housesitter Sloane">
+      </div>
+      <div class="team-card-back">
+        <h3>Sloane</h3>
+        <p>Hi, I’m Sloane! I’ve been house sitting for several years, and I truly love caring for pets. I grew up with a dog, a cat, and even a chinchilla, so I’m comfortable with animals of all kinds and know how much they mean to their families. I’m currently a pre-Physical Therapy student, and that path has really strengthened my patience, attentiveness, and care — qualities I bring to every house and pet I look after. Whether it’s going for walks, playing, or just keeping your pets company, I’ll make sure they feel safe, loved, and happy while you’re away.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  redrockshousesitting@gmail.com | 
+</footer>
+
+<script src="script.js"></script>
+<script>
+  // Auto refresh every 2 seconds while editing
+  if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
+    setInterval(() => {
+      fetch(location.href, {cache: "no-store"})
+        .then(() => location.reload());
+    }, 2000);
+  }
+</script>
+
+</body>
+</html>
