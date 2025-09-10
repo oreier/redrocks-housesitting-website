@@ -15,11 +15,13 @@ body {
   min-height: 100vh;
 }
 
+/* HEADER */
 header {
   background-color: white;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   padding: 20px 60px;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   position: sticky;
@@ -30,28 +32,30 @@ header {
 }
 
 header img {
-  height: 120px; 
+  max-width: 40%;
+  height: auto;
   transition: height 0.3s ease;
 }
 
 header.shrink {
-  padding: 8px 50px; /* compact header */
+  padding: 8px 50px;
 }
 
 header.shrink img {
-  height: 45px; /* smaller logo on scroll */
+  height: 45px;
 }
 
 nav {
   display: flex;
-  gap: 60px; /* space between menu items */
+  flex-wrap: wrap;
+  gap: 60px;
 }
 
 nav a {
   text-decoration: none;
   color: #333;
   font-weight: 600;
-  font-size: 1.5rem; /* big text for big header */
+  font-size: clamp(1rem, 2vw, 1.5rem); 
   transition: font-size 0.3s ease, color 0.3s ease;
 }
 
@@ -59,12 +63,16 @@ nav a:hover {
   color: #e74c3c;
 }
 
-/* Shrink menu text when header shrinks */
 header.shrink nav a {
   font-size: 1rem;
 }
 
+/* Hamburger toggle for mobile */
+.menu-toggle {
+  display: none;
+}
 
+/* HERO */
 .hero {
   height: 80vh;
   background: url('dog.png') center/cover no-repeat;
@@ -99,7 +107,7 @@ header.shrink nav a {
   background-color: #c0392b;
 }
 
-/* SERVICES SECTION*/
+/* SERVICES SECTION */
 .services {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -127,12 +135,11 @@ header.shrink nav a {
 .card-inner {
   position: relative;
   width: 100%;
-  padding-top: 66%; /* Aspect ratio */
+  padding-top: 66%;
   transform-style: preserve-3d;
   transition: transform 0.8s;
   border-radius: 10px;
 }
-
 
 /* Hover flip (desktop only) */
 @media (hover: hover) and (pointer: fine) {
@@ -183,7 +190,7 @@ header.shrink nav a {
   line-height: 1.4;
 }
 
-/* TESTIMONIALS SECTION*/
+/* TESTIMONIALS */
 .testimonials {
   padding: 50px;
   background-color: #fafafa;
@@ -215,9 +222,10 @@ header.shrink nav a {
 }
 
 .testimonial-carousel::-webkit-scrollbar {
-  display: none; /* hide scrollbar */
+  display: none;
 }
 
+/* ABOUT */
 .about {
   display: flex;
   align-items: flex-start;
@@ -271,13 +279,13 @@ form button:hover {
   margin: 0;
 }
 
-/* Team flip cards */
+/* TEAM CARDS */
 .about-team {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 30px;
   padding: 40px;
-  justify-items: center; /* center cards */
+  justify-items: center;
 }
 
 .team-card {
@@ -303,7 +311,7 @@ form button:hover {
   }
 }
 
-/* Flip when .flip class is toggled (mobile tap) */
+/* Tap flip (mobile) */
 .team-card.flip .team-card-inner {
   transform: rotateY(180deg);
 }
@@ -348,7 +356,7 @@ form button:hover {
   line-height: 1.4;
 }
 
-
+/* FOOTER */
 footer {
   background-color: #333;
   color: white;
@@ -358,3 +366,66 @@ footer {
   margin-top: auto;
 }
 
+/* MOBILE RESPONSIVENESS */
+@media (max-width: 768px) {
+  header {
+    padding: 10px 20px;
+  }
+
+  header img {
+    height: 50px;
+  }
+
+  /* Hamburger toggle */
+  .menu-toggle {
+    display: block;
+    font-size: 1.8rem;
+    cursor: pointer;
+  }
+
+  nav {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    background: white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    border-radius: 8px;
+    padding: 10px 20px;
+    gap: 15px;
+    z-index: 1001;
+  }
+
+  nav.active {
+    display: flex;
+  }
+
+  nav a {
+    font-size: 1rem;
+  }
+
+  /* Stack services and team cards vertically */
+  .services {
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+
+  .about-team {
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+
+  .about {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  form {
+    padding: 20px;
+  }
+
+  .hero h1 {
+    font-size: 1.5rem;
+  }
+}

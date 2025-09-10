@@ -64,5 +64,12 @@ document.querySelectorAll(".team-card").forEach(card => {
 });
 
 
+// Enable tap-to-flip on service cards (home page)
+document.querySelectorAll(".card").forEach(card => {
+  card.addEventListener("click", () => {
+    card.classList.toggle("flip");
+  });
+});
+
 console.log("Red Rocks Housesitting site loaded!");
 
