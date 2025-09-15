@@ -1,10 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
+/* GLOBAL RESETS */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  outline: 1px solid red; /* remove once done debugging */
+  /* outline: 1px solid red;  remove after debugging */
 }
 
 body {
@@ -14,6 +15,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 /* HEADER */
@@ -22,20 +24,12 @@ header {
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   padding: 20px 60px;
   display: flex;
-  flex-wrap: nowrap;
   align-items: center;
   justify-content: space-between;
   position: sticky;
   top: 0;
   z-index: 1000;
   transition: padding 0.3s ease;
-  will-change: transform;
-}
-
-@media (max-width: 768px) {
-  header {
-    padding: 10px 15px; /* shrink padding */
-  }
 }
 
 header img {
@@ -52,53 +46,28 @@ header.shrink img {
   height: 45px;
 }
 
-.menu-toggle {
-  display: none; /* hidden by default */
-}
-
-/* Hamburger toggle for mobile */
-  @media (max-width: 768px) {
-    .menu-toggle {
-      display: block;
-      font-size: 2rem;
-      cursor: pointer;
-    }
-  }
-
-
+/* NAVIGATION (DESKTOP DEFAULT) */
 nav {
-  display: none;
-  flex-direction: column;
-  position: absolute;
-  top: 70px;
-  right: 20px;
-  background: white;
-  padding: 10px 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  gap: 15px;
-}
-
-nav.active {
   display: flex;
+  gap: 40px;
 }
 
 nav a {
   text-decoration: none;
   color: #333;
   font-weight: 600;
-  font-size: clamp(1rem, 2vw, 1.5rem); 
-  transition: font-size 0.3s ease, color 0.3s ease;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  transition: color 0.3s;
 }
 
 nav a:hover {
   color: #e74c3c;
 }
 
-header.shrink nav a {
-  font-size: 1rem;
+/* HAMBURGER MENU (HIDDEN BY DEFAULT) */
+.menu-toggle {
+  display: none;
 }
-
 
 /* HERO */
 .hero {
@@ -111,14 +80,6 @@ header.shrink nav a {
   color: white;
   text-align: center;
   padding: 20px;
-  width: 100%;
-  overflow-x: hidden;
-}
-
-@media (max-width: 768px) {
-  .hero {
-    background-attachment: scroll; /* fixes mobile bug */
-  }
 }
 
 .hero h1 {
@@ -143,22 +104,13 @@ header.shrink nav a {
   background-color: #c0392b;
 }
 
-/* SERVICES SECTION */
+/* SERVICES */
 .services {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
   padding: 40px;
 }
-
-/* Make services fit smaller screens */
-@media (max-width: 768px) {
-  .services {
-    grid-template-columns: 1fr; /* single column */
-    padding: 20px;              /* less side padding */
-  }
-}
-
 
 .services-header {
   text-align: center;       
@@ -172,6 +124,7 @@ header.shrink nav a {
   margin: 0;                
 }
 
+/* CARDS */
 .card {
   perspective: 1000px;
   cursor: pointer;
@@ -186,14 +139,12 @@ header.shrink nav a {
   border-radius: 10px;
 }
 
-/* Hover flip (desktop only) */
 @media (hover: hover) and (pointer: fine) {
   .card:hover .card-inner {
     transform: rotateY(180deg);
   }
 }
 
-/* Tap flip (mobile) */
 .card.flip .card-inner {
   transform: rotateY(180deg);
 }
@@ -224,17 +175,6 @@ header.shrink nav a {
   justify-content: center;
 }
 
-.card-back h3 {
-  margin-bottom: 10px;
-  font-size: 1.2rem;
-}
-
-.card-back p {
-  font-size: 1rem;
-  color: #333;
-  line-height: 1.4;
-}
-
 /* TESTIMONIALS */
 .testimonials {
   padding: 50px;
@@ -252,8 +192,7 @@ header.shrink nav a {
   overflow-x: auto;
   gap: 50px;
   scroll-behavior: smooth;
-  padding: 0 20px 20px;  /* smaller side padding */
-  box-sizing: border-box;
+  padding: 0 20px 20px;
 }
 
 .testimonial-card {
@@ -264,7 +203,6 @@ header.shrink nav a {
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   text-align: left;
   font-style: italic;
-  font-size: 1rem;
 }
 
 .testimonial-carousel::-webkit-scrollbar {
@@ -312,7 +250,6 @@ form button:hover {
   background-color: #c0392b;
 }
 
-/* About page header */
 .about-header {
   text-align: center;
   padding: 60px 20px 20px;
@@ -321,8 +258,6 @@ form button:hover {
 .about-header h2 {
   font-size: 1.5rem;
   font-weight: 600;
-  color: #333;
-  margin: 0;
 }
 
 /* TEAM CARDS */
@@ -350,14 +285,12 @@ form button:hover {
   border-radius: 10px;
 }
 
-/* Flip on hover (desktop) */
 @media (hover: hover) and (pointer: fine) {
   .team-card:hover .team-card-inner {
     transform: rotateY(180deg);
   }
 }
 
-/* Tap flip (mobile) */
 .team-card.flip .team-card-inner {
   transform: rotateY(180deg);
 }
@@ -365,8 +298,7 @@ form button:hover {
 .team-card-front,
 .team-card-back {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 0; left: 0;
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
@@ -391,17 +323,6 @@ form button:hover {
   justify-content: center;
 }
 
-.team-card-back h3 {
-  margin-bottom: 8px;
-  font-size: 1.1rem;
-}
-
-.team-card-back p {
-  font-size: 0.9rem;
-  color: #333;
-  line-height: 1.4;
-}
-
 /* FOOTER */
 footer {
   background-color: #333;
@@ -412,7 +333,7 @@ footer {
   margin-top: auto;
 }
 
-/* MOBILE RESPONSIVENESS */
+/* MOBILE */
 @media (max-width: 768px) {
   header {
     padding: 10px 20px;
@@ -420,15 +341,15 @@ footer {
 
   header img {
     height: 50px;
+    max-width: 60%;
   }
 
-  /* Hamburger toggle */
+  /* Hamburger visible on mobile */
   .menu-toggle {
     display: block;
-    font-size: 1.8rem;
-    cursor: pointer;
   }
 
+  /* Hide nav until active */
   nav {
     display: none;
     flex-direction: column;
@@ -447,11 +368,6 @@ footer {
     display: flex;
   }
 
-  nav a {
-    font-size: 1rem;
-  }
-
-  /* Stack services and team cards vertically */
   .services {
     grid-template-columns: 1fr;
     padding: 20px;
@@ -473,9 +389,5 @@ footer {
 
   .hero h1 {
     font-size: 1.5rem;
-  }
-
-  html, body {
-  overflow-x: hidden;
   }
 }
