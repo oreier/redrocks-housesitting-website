@@ -4,7 +4,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  outline: 1px solid red;
+  outline: 1px solid red; /* remove once done debugging */
 }
 
 body {
@@ -33,10 +33,11 @@ header {
   will-change: transform;
 }
 
-  @media (max-width: 768px) {
+@media (max-width: 768px) {
   header {
     padding: 10px 15px; /* shrink padding */
   }
+}
 
 header img {
   max-width: 40%;
@@ -93,10 +94,11 @@ header.shrink nav a {
   padding: 20px;
 }
 
-  @media (max-width: 768px) {
+@media (max-width: 768px) {
   .hero {
     background-attachment: scroll; /* fixes mobile bug */
   }
+}
 
 .hero h1 {
   font-size: 2rem;
