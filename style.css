@@ -50,6 +50,7 @@ header.shrink img {
 nav {
   display: flex;
   gap: 40px;
+  align-items: center;
 }
 
 nav a {
