@@ -33,17 +33,17 @@ header {
 }
 
 header img {
-  max-width: 40%;
+  max-width: 50%;
   height: auto;
   transition: height 0.3s ease;
 }
 
 header.shrink {
-  padding: 8px 50px;
+  padding: 15px 60px;
 }
 
 header.shrink img {
-  height: 45px;
+  height: 60px;
 }
 
 /* NAVIGATION (DESKTOP DEFAULT) */
