@@ -14,7 +14,6 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  overflow-x: hidden;
 }
 
 /* HEADER */
@@ -23,7 +22,7 @@ header {
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   padding: 20px 60px;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
   justify-content: space-between;
   position: sticky;
@@ -53,11 +52,31 @@ header.shrink img {
   height: 45px;
 }
 
+/* Hamburger toggle for mobile */
+  @media (max-width: 768px) {
+    .menu-toggle {
+      display: block;
+      font-size: 2rem;
+      cursor: pointer;
+    }
+  }
+
+
 nav {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 70px;
+  right: 20px;
+  background: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  gap: 15px;
+}
+
+nav.active {
   display: flex;
-  flex-wrap: wrap;
-  gap: 60px;
-  right: 0;
 }
 
 nav a {
@@ -76,10 +95,6 @@ header.shrink nav a {
   font-size: 1rem;
 }
 
-/* Hamburger toggle for mobile */
-.menu-toggle {
-  display: none;
-}
 
 /* HERO */
 .hero {
@@ -92,6 +107,8 @@ header.shrink nav a {
   color: white;
   text-align: center;
   padding: 20px;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 @media (max-width: 768px) {
@@ -129,6 +146,15 @@ header.shrink nav a {
   gap: 20px;
   padding: 40px;
 }
+
+/* Make services fit smaller screens */
+@media (max-width: 768px) {
+  .services {
+    grid-template-columns: 1fr; /* single column */
+    padding: 20px;              /* less side padding */
+  }
+}
+
 
 .services-header {
   text-align: center;       
@@ -222,7 +248,8 @@ header.shrink nav a {
   overflow-x: auto;
   gap: 50px;
   scroll-behavior: smooth;
-  padding: 0px 40px 20px; 
+  padding: 0 20px 20px;  /* smaller side padding */
+  box-sizing: border-box;
 }
 
 .testimonial-card {
@@ -442,5 +469,9 @@ footer {
 
   .hero h1 {
     font-size: 1.5rem;
+  }
+
+  html, body {
+  overflow-x: hidden;
   }
 }
