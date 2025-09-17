@@ -33,24 +33,27 @@ header {
 }
 
 header img {
-  max-width: 30%;
+  max-width: 220px;;
   height: auto;
   transition: height 0.3s ease;
 }
 
 header.shrink {
-  padding: 15px 60px;
+  padding: 18px 60px;
 }
 
 header.shrink img {
-  height: 60px;
+  height: 70px;
+  max-width: 160px;
 }
 
 /* NAVIGATION (DESKTOP DEFAULT) */
 nav {
   display: flex;
-  gap: 40px;
+  flex-wrap: nowrap;
+  gap: 30px;
   align-items: center;
+  white-space: nowrap;
 }
 
 nav a {
