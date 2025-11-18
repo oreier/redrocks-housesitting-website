@@ -333,24 +333,58 @@ footer {
   color: white;
   text-align: center;
   padding: 70px; 
-  font-size: 2rem;
+  font-size: 1.5rem;
   margin-top: auto;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  box-sizing: border-box;
+
 }
 
 /* MOBILE */
 @media (max-width: 768px) {
-  header {
-    padding: 10px 20px;
+
+  /* GLOBAL MOBILE FIX */
+  body {
+    width: 100%;
+    overflow-x: hidden;
+    max-width: 100%;
+  }
+
+  footer {
+    padding: 40px 20px;
+    font-size: 1.2rem;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  html, body {
+  overflow-x: hidden;
+  }
+
+   header {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 10px 15px;
+  }
+
+  header * {
+    max-width: 100%;
   }
 
   header img {
-    height: 50px;
-    max-width: 60%;
+    max-width: 70%;
+    height: auto;
   }
 
   /* Hamburger visible on mobile */
   .menu-toggle {
     display: block;
+    right: 10px; /* prevent pushing beyond edge */
+    position: absolute;
   }
 
   /* Hide nav until active */
@@ -359,7 +393,10 @@ footer {
     flex-direction: column;
     position: absolute;
     top: 70px;
-    right: 20px;
+    right: 0;
+    margin: 0 10px;
+    width: auto;
+    max-width: calc(100% - 20px);
     background: white;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     border-radius: 8px;
@@ -372,9 +409,52 @@ footer {
     display: flex;
   }
 
+  /* Hero scaling */
+  .hero {
+    padding: 20px 10px;
+  }
+
+  .hero h1 {
+    font-size: 1.4rem;
+    max-width: 90%;
+    margin: 0 auto;
+  }
+
   .services {
     grid-template-columns: 1fr;
     padding: 20px;
+  }
+
+  /* Team card overflow fix */
+  .team-card {
+    width: 90%;
+    max-width: 350px;
+    height: auto; /* let it grow if necessary, but controlled via inner padding */
+    margin: auto;
+  }
+  
+  .team-card-inner {
+    width: 100%;
+    min-height: 500px; /* adjust based on your back text */
+    transform-style: preserve-3d;
+    transition: transform 0.8s;
+  }
+
+  .team-card-front,
+  .team-card-back {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%; /* important: front/back fill the inner card */
+    border-radius: 10px;
+    backface-visibility: hidden;
+    overflow: auto;       /* scroll if text is too long */
+    padding: 20px;
+  }
+
+  .team-card-front img {
+    height: 100%;
+    object-fit: cover;
   }
 
   .about-team {
@@ -385,13 +465,22 @@ footer {
   .about {
     flex-direction: column;
     align-items: center;
+    padding: 20px;
   }
 
   form {
     padding: 20px;
   }
 
-  .hero h1 {
-    font-size: 1.5rem;
+  /* Testimonial carousel scroll fix */
+  .testimonial-carousel {
+    padding: 0 10px 20px;
+    gap: 20px;
+  }
+
+  .testimonial-card {
+    flex: 0 0 80%;
+    max-width: 260px;
   }
 }
+
